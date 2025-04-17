@@ -21,6 +21,9 @@ void task_1(void) {
   for (int i = sizeof(int) * 8 - 1; i >= 0; i--) {
     bit = (num >> i) & 1;
     printf("%d", bit);
+    if (i % 8 == 0) {
+      printf(" ");
+    }
   }
 
   printf("\n");
@@ -47,6 +50,9 @@ void task_2(void) {
   for (int i = sizeof(int) * 8 - 1; i >= 0; i--) {
     bit = (num >> i) & 1;
     printf("%d", bit);
+    if (i % 8 == 0) {
+      printf(" ");
+    }
   }
 
   printf("\n");
@@ -69,13 +75,19 @@ void task_3(void) {
   }
 
   unsigned int count = 0;
+  printf("Двоичное представление: ");
   for (int i = sizeof(int) * 8 - 1; i >= 0; i--) {
     bit = (num >> i) & 1;
+    printf("%d", bit);
+    if (i % 8 == 0) {
+      printf(" ");
+    }
+
     if (bit) {
       count++;
     }
   }
-  printf("Количество единиц в двоичном представлении: %d\n", count);
+  printf("\nКоличество единиц в двоичном представлении: %d\n", count);
 }
 
 /*
