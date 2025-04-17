@@ -52,6 +52,32 @@ void task_2(void) {
   printf("\n");
 }
 
+/*
+  3. Найти количество единиц в двоичном представлении целого
+  положительного числа (число вводится с клавиатуры).
+*/
+
+void task_3(void) {
+  int num;
+  unsigned char bit;
+
+  printf("Введите целое положительное число: ");
+  scanf("%d", &num);
+  if (num < 0) {
+    printf("Введено отрицательное число!\n");
+    return;
+  }
+
+  unsigned int count = 0;
+  for (int i = sizeof(int) * 8 - 1; i >= 0; i--) {
+    bit = (num >> i) & 1;
+    if (bit) {
+      count++;
+    }
+  }
+  printf("Количество единиц в двоичном представлении: %d\n", count);
+}
+
 int main(void) {
   system("clear");
   unsigned int key;
@@ -69,6 +95,11 @@ int main(void) {
       case 2:
         system("clear");
         task_2();
+        break;
+
+      case 3:
+        system("clear");
+        task_3();
         break;
 
       case 0:
