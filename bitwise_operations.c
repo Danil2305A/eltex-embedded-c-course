@@ -97,12 +97,12 @@ void task_3(void) {
 */
 
 void task_4(void) {
-  int num, byte;
-  unsigned char bit;
+  int num;
+  unsigned char byte, bit;
 
   printf("Введите целое положительное число и значение байта через пробел: ");
-  scanf("%d %d", &num, &byte);
-  if (num < 0 || byte < 0) {
+  scanf("%d %hhu", &num, &byte);
+  if (num < 0) {
     printf("Введено отрицательное число!\n");
     return;
   }
@@ -122,7 +122,7 @@ void task_4(void) {
     printf("%d", bit);
   }
 
-  num = (num & ~0xFF0000) | (byte << 16);
+  num = (num & ~0xFF0000) | (byte << 16);  // нумерация байтов с 1 справа налево
   printf("\nДвоичное преставление числа после замены третьего байта: ");
   for (int i = sizeof(int) * 8 - 1; i >= 0; i--) {
     bit = (num >> i) & 1;
