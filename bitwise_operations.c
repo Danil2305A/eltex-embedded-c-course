@@ -78,6 +78,51 @@ void task_3(void) {
   printf("Количество единиц в двоичном представлении: %d\n", count);
 }
 
+/*
+  4. Поменять в целом положительном числе (типа int) значение третьего
+  байта на введенное пользователем число (изначальное число также
+  вводится с клавиатуры).
+*/
+
+void task_4(void) {
+  int num, byte;
+  unsigned char bit;
+
+  printf("Введите целое положительное число и значение байта через пробел: ");
+  scanf("%d %d", &num, &byte);
+  if (num < 0 || byte < 0) {
+    printf("Введено отрицательное число!\n");
+    return;
+  }
+
+  printf("Двоичное преставление числа: ");
+  for (int i = sizeof(int) * 8 - 1; i >= 0; i--) {
+    bit = (num >> i) & 1;
+    printf("%d", bit);
+    if (i % 8 == 0) {
+      printf(" ");
+    }
+  }
+
+  printf("\nДвоичное преставление байта: ");
+  for (int i = 7; i >= 0; i--) {
+    bit = (byte >> i) & 1;
+    printf("%d", bit);
+  }
+
+  num = (num & ~0xFF0000) | (byte << 16);
+  printf("\nДвоичное преставление числа после замены третьего байта: ");
+  for (int i = sizeof(int) * 8 - 1; i >= 0; i--) {
+    bit = (num >> i) & 1;
+    printf("%d", bit);
+    if (i % 8 == 0) {
+      printf(" ");
+    }
+  }
+
+  printf("\n");
+}
+
 int main(void) {
   system("clear");
   unsigned int key;
@@ -100,6 +145,11 @@ int main(void) {
       case 3:
         system("clear");
         task_3();
+        break;
+
+      case 4:
+        system("clear");
+        task_4();
         break;
 
       case 0:
