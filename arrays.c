@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define N 5
+#define N 3
 
 // 1. Вывести квадратную матрицу по заданному N.
 
@@ -43,6 +43,25 @@ void task_2(void) {
   printf("\n");
 }
 
+// Заполнить верхний треугольник матрицы 0, а нижний 1.
+
+void task_3(void) {
+  int matrix[N][N];
+
+  for (int i = 0; i < N; i++) {
+    for (int j = 0; j < N; j++) {
+      if (i + j < N - 1) {
+        matrix[i][j] = 0;
+      } else {
+        matrix[i][j] = 1;
+      }
+
+      printf("%d ", matrix[i][j]);
+    }
+    printf("\n");
+  }
+}
+
 int main(void) {
   system("clear");
   unsigned int key;
@@ -60,6 +79,11 @@ int main(void) {
       case 2:
         system("clear");
         task_2();
+        break;
+
+      case 3:
+        system("clear");
+        task_3();
         break;
 
       case 0:
