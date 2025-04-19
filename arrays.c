@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define N 3
+#define N 5
 
 // 1. Вывести квадратную матрицу по заданному N.
 
@@ -18,6 +18,31 @@ void task_1(void) {
   }
 }
 
+// 2. Вывести заданный массив размером N в обратном порядке.
+
+void task_2(void) {
+  int nums[N];
+
+  printf("Прямой порядок: ");
+  for (int i = 0; i < N; i++) {
+    nums[i] = i + 1;
+    printf("%d ", nums[i]);
+  }
+
+  for (int i = 0; i < N / 2; i++) {
+    int temp = nums[i];
+    nums[i] = nums[N - i - 1];
+    nums[N - i - 1] = temp;
+  }
+
+  printf("\nОбратный порядок: ");
+  for (int i = 0; i < N; i++) {
+    printf("%d ", nums[i]);
+  }
+
+  printf("\n");
+}
+
 int main(void) {
   system("clear");
   unsigned int key;
@@ -30,6 +55,11 @@ int main(void) {
       case 1:
         system("clear");
         task_1();
+        break;
+
+      case 2:
+        system("clear");
+        task_2();
         break;
 
       case 0:
