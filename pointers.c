@@ -68,7 +68,7 @@ void task_3(void) {
   int nums[10];
 
   for (int i = 0; i < 10; i++) {
-    nums[i] = i + 1;
+    *(nums + i) = i + 1;
     printf("%d ", *(nums + i));
   }
 
