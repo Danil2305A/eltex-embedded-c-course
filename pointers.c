@@ -48,7 +48,7 @@ void task_1(void) {
 */
 
 void task_2(void) {
-  float x = 80.0;
+  float x = 5.0;
   printf("x = %f, ", x);
   float y = 6.0;
   printf("y = %f\n", y);
