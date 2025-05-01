@@ -42,6 +42,21 @@ void task_1(void) {
   printf("\n");
 }
 
+/*
+  2. В приведенном ниже коде измените только одну строку (помеченную),
+  чтобы напечатать “Результат: 12.0”.
+*/
+
+void task_2(void) {
+  float x = 5.0;
+  printf("x = %f, ", x);
+  float y = 6.0;
+  printf("y = %f\n", y);
+  float *xp = &x + 1;  // Отредактированная строка
+  float *yp = &y;
+  printf("Результат: %f\n", *xp + *yp);
+}  // Пояснение: в памяти x и y расположены последовательно
+
 int main(void) {
   system("clear");
   unsigned int key;
@@ -54,6 +69,11 @@ int main(void) {
       case 1:
         system("clear");
         task_1();
+        break;
+
+      case 2:
+        system("clear");
+        task_2();
         break;
 
       case 0:
