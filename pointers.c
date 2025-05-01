@@ -48,7 +48,7 @@ void task_1(void) {
 */
 
 void task_2(void) {
-  float x = 5.0;
+  float x = 80.0;
   printf("x = %f, ", x);
   float y = 6.0;
   printf("y = %f\n", y);
@@ -75,6 +75,54 @@ void task_3(void) {
   printf("\n");
 }
 
+/*
+  4. Напишите программу, которая ищет введенной строке (с клавиатуры)
+  введенную подстроку (с клавиатуры) и возвращает указатель на начало
+  подстроки, если подстрока не найдена, в указатель записывается NULL.
+  В качестве строк использовать статические массивы.
+*/
+
+const char *find_substring(const char *str, const char *substr) {
+  while (*str != '\0') {
+    const char *str_p = str;
+    const char *substr_p = substr;
+
+    while (*str_p == *substr_p && *substr_p != '\0') {
+      str_p++;
+      substr_p++;
+    }
+
+    if (*substr_p == '\0') {
+      return str;
+    }
+    str++;
+  }
+
+  return NULL;
+}
+
+void task_4(void) {
+  char str[80];
+  char substr[80];
+
+  getchar();
+  printf("Введите строку (до 80 символов): ");
+  scanf("%80[^\n]", str);
+  getchar();
+  printf("Введите подстроку (до 80 символов): ");
+  scanf("%80[^\n]", substr);
+
+  printf("Строка: %s\n", str);
+  printf("Подстрока: %s\n", substr);
+
+  const char *result = find_substring(str, substr);
+  if (!result) {
+    printf("Подстрока не найдена в строке!\n");
+  } else {
+    printf("Подстрока найдена в строке! %s\n", result);
+  }
+}
+
 int main(void) {
   system("clear");
   unsigned int key;
@@ -97,6 +145,11 @@ int main(void) {
       case 3:
         system("clear");
         task_3();
+        break;
+
+      case 4:
+        system("clear");
+        task_4();
         break;
 
       case 0:
