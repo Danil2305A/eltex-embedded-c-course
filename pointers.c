@@ -57,6 +57,24 @@ void task_2(void) {
   printf("Результат: %f\n", *xp + *yp);
 }  // Пояснение: в памяти x и y расположены последовательно
 
+/*
+  3. Напишите программу, в которой определите массив типа int (размер
+  массива 10 элементов от 1 до 10). Используйте указатель для вывода
+  элементов массива на консоль (применять можно только арифметику
+  указателей, а не индексы).
+*/
+
+void task_3(void) {
+  int nums[10];
+
+  for (int i = 0; i < 10; i++) {
+    nums[i] = i + 1;
+    printf("%d ", *(nums + i));
+  }
+
+  printf("\n");
+}
+
 int main(void) {
   system("clear");
   unsigned int key;
@@ -74,6 +92,11 @@ int main(void) {
       case 2:
         system("clear");
         task_2();
+        break;
+
+      case 3:
+        system("clear");
+        task_3();
         break;
 
       case 0:
